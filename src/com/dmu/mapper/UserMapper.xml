@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dmu.mapper.UserMapper">
+	<!-- 更新用户基本信息 -->
+	<update id="updUserById" parameterType="user">
+		update user
+		<set>
+			id=#{id},
+			<if test="clazz!=null and clazz!=''">
+				clazz=#{clazz},
+			</if>
+			<if test="address!=null and address!=''">
+				address=#{address},
+			</if>
+			<if test="username!=null and username!=''">
+				username=#{username},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+	
+</mapper>
